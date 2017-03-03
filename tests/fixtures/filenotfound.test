@@ -1,0 +1,10 @@
+--TEST--
+"inlinecss" tag
+--TEMPLATE--
+{% inlinecss cssPath %}
+<h1>Hello World</h1>
+{% endinlinecss %}
+--DATA--
+return array('cssPath' => 'notfound.css')
+--EXPECT--
+Twig_Error: Twig_Error_Runtime: An exception has been thrown during the rendering of a template ("Given file could not be found: notfound.css") in "index.twig" at line 2 in "filenotfound.test".
