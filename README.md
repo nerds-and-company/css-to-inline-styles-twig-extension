@@ -26,7 +26,7 @@ $twig->addExtension(new InlineCssExtension());
 
 ## Usage
 ```
-{% inlincecss '/absolute/path/file.css' %}
+{% inlinecss '/absolute/path/file.css' %}
    <tag>Html to be converted</tag>
 {% endinlinecss %}
 ```
