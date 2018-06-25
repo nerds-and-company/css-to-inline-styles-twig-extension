@@ -26,7 +26,7 @@ class InlineCssNode extends Twig_Node
                  ->subcompile($this->getAttribute('css'))
                  ->write(";\n")
                  ->write('if(!file_exists($cssPath)){ throw new InvalidArgumentException(\'Given file could not be found: \'.$cssPath); }'."\n")
-                 ->write('$css = \'"\'.addslashes(file_get_contents($cssPath)).\'"\';'."\n")
+                 ->write('$css = \'"\'.file_get_contents($cssPath).\'"\';'."\n")
                  ->write("ob_start();\n")
                  ->subcompile($this->getNode('body'))
                  ->write('echo $context["inlinecss"]->convert(ob_get_clean(), $css);'."\n")

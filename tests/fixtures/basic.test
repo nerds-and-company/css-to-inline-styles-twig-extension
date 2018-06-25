@@ -8,4 +8,4 @@
 return array('cssPath' => __DIR__.'/../../../../../../tests/fixtures/test.css')
 --EXPECT--
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body><h1 class="h1" style="color: \'red\';">Hello World</h1></body></html>
+<html><body><h1 class="h1" style="color: 'red'; background-color: 'blue';">Hello World</h1></body></html>
