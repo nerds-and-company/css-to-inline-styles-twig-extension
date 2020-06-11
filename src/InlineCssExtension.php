@@ -2,7 +2,8 @@
 
 namespace NerdsAndCompany\CssToInlineStyles\Twig;
 
-use Twig_Extension;
+use Twig\Extension\AbstractExtension;
+use Twig\Extension\GlobalsInterface;
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 /**
@@ -14,7 +15,7 @@ use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
  *
  * @see      http://www.nerds.company
  */
-class InlineCssExtension extends Twig_Extension implements \Twig_Extension_GlobalsInterface
+class InlineCssExtension extends AbstractExtension implements GlobalsInterface
 {
     /**
      * {@inheritdoc}
@@ -27,7 +28,7 @@ class InlineCssExtension extends Twig_Extension implements \Twig_Extension_Globa
     /**
      * {@inheritdoc}
      */
-    public function getGlobals()
+    public function getGlobals(): array
     {
         return ['inlinecss' => new CssToInlineStyles()];
     }

@@ -2,8 +2,8 @@
 
 namespace NerdsAndCompany\CssToInlineStyles\Twig;
 
-use Twig_Compiler;
-use Twig_Node;
+use Twig\Compiler;
+use Twig\Node\Node;
 
 /**
  * Inline css node adds coversion of css to inline style for given node.
@@ -14,12 +14,12 @@ use Twig_Node;
  *
  * @see      http://www.nerds.company
  */
-class InlineCssNode extends Twig_Node
+class InlineCssNode extends Node
 {
     /**
      * {@inheritdoc}
      */
-    public function compile(Twig_Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler->addDebugInfo($this)
                  ->write('$cssPath = ')

@@ -2,6 +2,8 @@
 
 namespace NerdsAndCompany\CssToInlineStyles\Twig;
 
+use Twig\Test\IntegrationTestCase;
+
 /**
  * Inline Css extension integration test.
  *
@@ -11,7 +13,7 @@ namespace NerdsAndCompany\CssToInlineStyles\Twig;
  *
  * @see      http://www.nerds.company
  */
-class InlineCssIntegrationTest extends \Twig_Test_IntegrationTestCase
+class InlineCssIntegrationTest extends IntegrationTestCase
 {
     /**
      * {@inheritdoc}

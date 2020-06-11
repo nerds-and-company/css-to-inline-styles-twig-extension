@@ -2,8 +2,8 @@
 
 namespace NerdsAndCompany\CssToInlineStyles\Twig;
 
-use Twig_TokenParser;
-use Twig_Token;
+use Twig\TokenParser\AbstractTokenParser;
+use Twig\Token;
 
 /**
  * Parses twig node between inlinecss and endinlinecss.
@@ -14,20 +14,20 @@ use Twig_Token;
  *
  * @see      http://www.nerds.company
  */
-class InlineCssParser extends Twig_TokenParser
+class InlineCssParser extends AbstractTokenParser
 {
     /**
      * {@inheritdoc}
      */
-    public function parse(Twig_Token $token)
+    public function parse(Token $token)
     {
         $lineNo = $token->getLine();
         $stream = $this->parser->getStream();
         $path = $this->parser->getExpressionParser()->parseMultitargetExpression();
 
-        $stream->expect(Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
         $body = $this->parser->subparse(array($this, 'decideEnd'), true);
-        $stream->expect(Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
 
         return new InlineCssNode(['body' => $body], ['css' => $path], $lineNo, $this->getTag());
     }
@@ -43,9 +43,9 @@ class InlineCssParser extends Twig_TokenParser
     /**
      * Node ends when endinlinecss tag has been reached.
      *
-     * @param Twig_Token $token
+     * @param Token $token
      */
-    public function decideEnd(Twig_Token $token)
+    public function decideEnd(Token $token)
     {
         return $token->test('endinlinecss');
     }
