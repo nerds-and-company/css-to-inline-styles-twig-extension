@@ -18,8 +18,9 @@ Add the extension to the `Twig_Environment`:
 
 ```php
 use NerdsAndCompany\CssToInlineStyles\Twig\InlineCssExtension;
+use Twig\Environment;
 
-$twig = new Twig_Environment(...);
+$twig = new Environment(...);
 
 $twig->addExtension(new InlineCssExtension());
 ```
